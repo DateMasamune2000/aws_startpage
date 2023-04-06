@@ -23,36 +23,9 @@
 </div>
 </div>
 </div> -->
-<div class=" mx-auto d-flex justify-content-evenly">
-<div class="p-2"><Card cardTitle="Bookmarks"/></div>
-<div class="p-2"><Card cardTitle="Todos"/></div>
-<div class="p-2"><Card cardTitle="Time"/></div>
-<div class="p-2"><Card cardTitle="Weather"/></div>
+<div class="mx-auto d-flex justify-content-evenly">
+  <div class="p-2"><Card cardTitle="Bookmarks"/></div>
+  <div class="p-2"><Card cardTitle="Todos"/></div>
+  <div class="p-2"><Card cardTitle="Time"/></div>
+  <div class="p-2"><Card cardTitle="Weather"/></div>
 </div>
-
-<!-- <div class="d-flex justify-content-evenly">
-<div class="container text-center">
-    <div class="row">
-      <div class="col">
-        <Card cardTitle="Bookmarks"/>
-      </div>
-      <div class="col">
-        <Card cardTitle="Time"/>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <Card cardTitle="Todos"/>
-      </div>
-      <div class="col">
-        <Card cardTitle="weather"/>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<style>
-    /* .max3{
-        flex-basis: 33%;
-    } */
-</style>
