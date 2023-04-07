@@ -1,18 +1,41 @@
 <script>
-    export let Desc = "default"
+    import { each } from "svelte/internal";
+    import Bookmark from "./Bookmark.svelte";
+    import { bookMarks } from "./stores";
+    export let Desc = "default";
+
+    let currentBookmark = ""
+    function addBookmark(e){
+        if(e.key === "Enter"){
+            $bookMarks.push(currentBookmark)
+            $bookMarks = $bookMarks
+            currentBookmark = ""
+        }
+    }
 </script>
 
 <div class="card-text">
-<p>{Desc = "Easily save, import, organize and access. Filter out broken and duplicate links."}</p>
-<ul>
-    <li><a href="https://www.google.com" target="_blank">Google</a></li>
-    <li><a href="https://www.youtube.com" target="_blank">Youtube</a></li>
-    <li><a href="https://github.com" target="_blank">GitHub</a></li>
-    <li><a href="https://mail.google.com" target="_blank">Gmail</a></li>
-    <li><a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
-</ul>
+    <p>{Desc = "Easily save, import, organize and access."}</p>
+    <p>
+        {#each $bookMarks as bm,i}
+            <Bookmark bm={bm} index={i}/>
+        {/each}
+    </p>
+    <div class="input-group mb-3">
+        <input type="text" on:keypress={addBookmark} bind:value={currentBookmark} class="form-control" placeholder="Bookmark a tab..." aria-label="Username" aria-describedby="basic-addon1">
+    </div>
 </div>
-<div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">@</span>
-    <input type="text" class="form-control" placeholder="Paste a Bookmark..." aria-label="Username" aria-describedby="basic-addon1">
-  </div>
+
+<style>
+    input{
+        border: none;
+        color:beige;
+        background-color: #282A3A;
+    }
+
+    input:focus{
+        outline: none;
+        color:beige;
+        background-color: #282A3A;
+    }
+</style>

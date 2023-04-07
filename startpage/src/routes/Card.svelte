@@ -14,7 +14,7 @@
     {:else if cardTitle==='Todos'}
     <Todos/>
     {:else}
-    <Bookmarks/>    
+    <!-- <Bookmarks/>     -->
     {/if}
   </div>
 </div>
