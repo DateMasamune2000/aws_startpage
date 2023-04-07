@@ -1,6 +1,7 @@
 <script>
   import Bookmarks from "./Bookmarks.svelte";
   import Todos from "./Todos.svelte";
+  import Weather from "./Weather.svelte";
   export let cardTitle = "Default"
 </script>
 
@@ -14,8 +15,10 @@
     <Bookmarks/>    
     {:else if cardTitle==='Todos'}
     <Todos/>
-    {:else}
-    <Bookmarks/>    
+    {:else if cardTitle==='Bookmarks'}
+    <Bookmarks/>
+	{:else}
+	<Weather/>
     {/if}
   </div>
 </div>
