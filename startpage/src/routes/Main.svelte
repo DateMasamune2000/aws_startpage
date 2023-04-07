@@ -38,6 +38,8 @@
     margin: auto;
   }
   .main-content{
+    color: #FBF1D3;
+    background-color: #282A3A;
     width: 100vw;
     height: 100vh;
   }

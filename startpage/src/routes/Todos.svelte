@@ -29,5 +29,14 @@
 
 <style>
 
-
+input{
+  border: none;
+  color:beige;
+        background-color: #282A3A;
+    }
+input:focus{
+  outline: none;
+  color:beige;
+  background-color: #282A3A;
+}
 </style>

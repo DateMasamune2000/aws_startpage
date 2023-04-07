@@ -14,11 +14,11 @@
 
 <div>
 <label><input type="checkbox" id={index} name={todo}> {todo}</label>
-<i class="bi bi-x-circle" on:click={deleteSelf}></i>
+<i class="bi bi-x-circle"  on:click={deleteSelf} on:keypress={deleteSelf}></i>
 </div>
 
 <style>
-    
+
     i{
         float: right;
     }    
