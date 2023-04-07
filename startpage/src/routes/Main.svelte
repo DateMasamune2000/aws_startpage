@@ -3,7 +3,7 @@
     import NavBar from "./NavBar.svelte";
 </script>
 
-
+<div class="main-content">
 <NavBar/>
 <!-- <div class="mx-auto p-2" id="main-container">
 <div class="container text-center ">
@@ -23,9 +23,22 @@
 </div>
 </div>
 </div> -->
-<div class="mx-auto d-flex justify-content-evenly">
+<div class="mx-auto d-flex flex-sm-wrap justify-content-evenly cards" style="max-width: 60%;">
   <div class="p-2"><Card cardTitle="Bookmarks"/></div>
   <div class="p-2"><Card cardTitle="Todos"/></div>
   <div class="p-2"><Card cardTitle="Time"/></div>
   <div class="p-2"><Card cardTitle="Weather"/></div>
+  <div class="p-2"><Card cardTitle="Bookmarks"/></div>
+
 </div>
+</div>
+
+<style>
+  .cards{
+    margin: auto;
+  }
+  .main-content{
+    width: 100vw;
+    height: 100vh;
+  }
+</style>

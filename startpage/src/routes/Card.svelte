@@ -1,5 +1,6 @@
 <script>
   import Bookmarks from "./Bookmarks.svelte";
+  import Todos from "./Todos.svelte";
   export let cardTitle = "Default"
 </script>
 
@@ -9,7 +10,12 @@
     <!-- <img src="..." class="card-img-top" alt="..."> -->
   <div class="card-body">
     <h5 class="card-title">{cardTitle}</h5>
-    <p class="card-text"><Bookmarks/></p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    {#if cardTitle==='Bookmarks'}
+    <Bookmarks/>    
+    {:else if cardTitle==='Todos'}
+    <Todos/>
+    {:else}
+    <Bookmarks/>    
+    {/if}
   </div>
 </div>
