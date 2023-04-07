@@ -10,3 +10,6 @@ export const weatherData = {
 	"tmp": data.hourly["temperature_2m"][0],
 	"hum": 50,
 };
+
+export const todosList = writable([])
+

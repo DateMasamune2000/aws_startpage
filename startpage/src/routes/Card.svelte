@@ -5,7 +5,6 @@
   export let cardTitle = "Default"
 </script>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
 <div class="card" style="width: 18rem;">
     <!-- <img src="..." class="card-img-top" alt="..."> -->
@@ -22,3 +21,16 @@
     {/if}
   </div>
 </div>
+<style>
+
+  .card{
+    background-color: #ADA2FF;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+  }
+  .card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+</style>
+
