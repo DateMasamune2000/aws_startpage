@@ -54,15 +54,24 @@
 <div class="row">
 <div class="input-group mb-3">
 <!-- <span class="input-group-text" id="basic-addon1">@</span> -->
-<button class="btn btn-secondary" id="basic_addon1" on:click={rw}>@</button>
+<button class="btn" id="basic_addon1" on:click={rw}>@</button>
 <input type="text" bind:value={coordinate_string} class="form-control" placeholder="<x> <y>" aria-label="Username" aria-describedby="basic-addon1">
 </div>
 </div>
 {:else}
 <div class="row">
-<button class="btn btn-primary" on:click={toggleVisible}>Show location settings</button>
+<button class="btn" on:click={toggleVisible}>Show location settings</button>
 </div>
 {/if}
 </div>
 </div>
+
+<style>
+	button{
+		background-color: #03C988;
+	}
+	button:hover{
+		background-color: #03C988;
+	}
+</style>
 
