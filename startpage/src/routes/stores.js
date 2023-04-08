@@ -1,5 +1,8 @@
 import { writable } from "svelte/store";
 
+export const todosList = writable([])
+export const bookMarks = writable([])
+export const userLogin = writable(false)
 
 export let weatherData = writable({ "tmp": 0, "hum": 0 });
 
@@ -14,3 +17,4 @@ export const refreshWeather = async (lat, lng) => {
 		"unit": data.hourly_units["temperature_2m"]
 	});
 }
+

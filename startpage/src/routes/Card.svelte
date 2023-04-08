@@ -5,7 +5,6 @@
   export let cardTitle = "Default"
 </script>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
 <div class="card" style="width: 18rem;">
     <!-- <img src="..." class="card-img-top" alt="..."> -->
@@ -15,10 +14,25 @@
     <Bookmarks/>    
     {:else if cardTitle==='Todos'}
     <Todos/>
-    {:else if cardTitle==='Bookmarks'}
-    <Bookmarks/>
-	{:else}
-	<Weather/>
+    {:else}
+   <Weather/>
     {/if}
   </div>
 </div>
+
+
+<style>
+
+  .card{
+    color: #FFFFC1;
+    background-color: #5715b9;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: height 1s ease-in-out;
+  }
+
+  .card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.404);
+  }
+
+</style>
+
