@@ -1,29 +1,51 @@
 <script>
-    import { subscribe } from "svelte/internal";
     export let Desc = "default"
 	export let coordinate_string = "";
     import { weatherData } from "./stores";
-    import { coordinateData } from "./stores";
 	import { refreshWeather } from "./stores";
+	import { onMount } from "svelte";
 
-	function setCoordinates () {
+	let coordinateData = {
+		"lat": 0,
+		"long": 0,
+	}
+
+	async function setCoordinates () {
 		let temp = coordinate_string.split(' ');
-		let temp2 = {
+		var temp2 = {
 			"lat": Number(temp[0]),
 			"long": Number(temp[1])
 		};
 
-		$coordinateData = temp2;
+		console.log("temp2 = " + temp2["lat"] + " " + temp2["long"]);
+
+		coordinateData = temp2;
 	};
+
+	async function rw() {
+		setCoordinates();
+		$weatherData = await refreshWeather(
+				coordinateData["lat"],
+				coordinateData["long"]);
+	};
+
+	onMount(async() => {
+		$weatherData = await refreshWeather(
+				coordinateData["lat"],
+				coordinateData["long"]);
+	});
 </script>
 
 <div class="card-text">
 <p>{Desc = "Get weather information"}</p>
-<p>{$weatherData["tmp"]}</p>
-    <!-- <span class="input-group-text" id="basic-addon1">@</span> -->
+<ul>
+<li>Temperature: {$weatherData["tmp"]}</li>
+<li>Humidity: {$weatherData["hum"]}</li>
+</ul>
 <div class="input-group mb-3">
-<button class="input_group_text" id="basic_addon1" on:click={refreshWeather}>@</button>
-<input type="text" on:keypress={setCoordinates} bind:value={coordinate_string} class="form-control" placeholder="<x> <y>" aria-label="Username" aria-describedby="basic-addon1">
+ <!-- <span class="input-group-text" id="basic-addon1">@</span> -->
+<button class="input_group_text" id="basic_addon1" on:click={rw}>@</button>
+<input type="text" bind:value={coordinate_string} class="form-control" placeholder="<x> <y>" aria-label="Username" aria-describedby="basic-addon1">
 </div>
 </div>
 
