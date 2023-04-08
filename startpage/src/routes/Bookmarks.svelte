@@ -24,7 +24,7 @@
         {/each}
     </p>
     <div class="input-group mb-3">
-        <input type="text" on:keypress={addBookmark} bind:value={currentBookmark} class="form-control" placeholder="Bookmark a tab..." aria-label="Username" aria-describedby="basic-addon1">
+        <input type="url" on:keypress={addBookmark} bind:value={currentBookmark} class="form-control" placeholder="Bookmark a tab..." aria-label="Username" aria-describedby="basic-addon1">
     </div>
 </div>
 
