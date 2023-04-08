@@ -8,8 +8,6 @@ export const refreshWeather = async (lat, lng) => {
 
 	const data = await response.json();
 
-	console.log(data);
-
 	return ({
 		"tmp": data.hourly["temperature_2m"][0],
 		"hum": 50,
