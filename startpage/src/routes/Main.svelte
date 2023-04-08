@@ -1,9 +1,12 @@
 <script>
     import Card from "./Card.svelte";
+  import Form from "./Form.svelte";
     import NavBar from "./NavBar.svelte";
 </script>
 
 <div class="main-content">
+<Form/>
+
 <NavBar/>
 <!-- <div class="mx-auto p-2" id="main-container">
 <div class="container text-center ">
