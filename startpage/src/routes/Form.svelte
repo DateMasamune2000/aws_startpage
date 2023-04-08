@@ -42,7 +42,6 @@
               <label for="reg-log"></label>
               <div class="card-3d-wrap mx-auto">
                 <div class="card-3d-wrapper">
-                  <form action="" method="get">
                   <div class="card-front">
                     <div class="center-wrap">
                       <div class="section text-center">
@@ -80,10 +79,6 @@
                       </div>
                     </div>
                   </div>
-                  
-                </form>
-                
-                  <form action="" method="get">
                   <div class="card-back">
                     <div class="center-wrap">
                       <div class="section text-center">
@@ -131,8 +126,6 @@
                       </div>
                     </div>
                   </div>
-                </form>
-
                 </div>
               </div>
             </div>
