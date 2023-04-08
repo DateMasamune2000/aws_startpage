@@ -10,7 +10,7 @@
 </script>
 
 <div>
-    <label for="bookmarks"><input type="radio" id="{index}" name="{bm}" on:click={()=>window.open(bm)}> {bm}</label>
+    <label for="bookmarks" id="{index}" name="{bm}" on:click={()=>window.open(bm)}> {bm}</label>
     <i class="bi bi-x-circle" on:click={deleteBookmark} on:keypress={deleteBookmark}></i>
 </div>
 
