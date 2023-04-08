@@ -1,9 +1,17 @@
 <script>
     import { userLogin } from "./stores";
-
+    let userName = "";
+    let userPass = "";
+    let userEmail = "";
     function authUser(){
-        console.log("asdfasdfasdf")
+        
         $userLogin = true;
+    }
+    function createUser(){
+
+    }
+    function checkUserExists(){
+            
     }
 </script>
     
@@ -34,6 +42,7 @@
               <label for="reg-log"></label>
               <div class="card-3d-wrap mx-auto">
                 <div class="card-3d-wrapper">
+                  <form action="" method="get">
                   <div class="card-front">
                     <div class="center-wrap">
                       <div class="section text-center">
@@ -45,7 +54,9 @@
                             class="form-style"
                             placeholder="Your Email"
                             id="logemail"
+                            bind:value={userEmail}
                             autocomplete="off"
+                            required
                           />
                           <i class="input-icon uil uil-at"></i>
                         </div>
@@ -56,7 +67,9 @@
                             class="form-style"
                             placeholder="Your Password"
                             id="logpass"
+                            bind:value={userPass}
                             autocomplete="off"
+                            required
                           />
                           <i class="input-icon uil uil-lock-alt"></i>
                         </div>
@@ -67,6 +80,10 @@
                       </div>
                     </div>
                   </div>
+                  
+                </form>
+                
+                  <form action="" method="get">
                   <div class="card-back">
                     <div class="center-wrap">
                       <div class="section text-center">
@@ -78,7 +95,9 @@
                             class="form-style"
                             placeholder="Your Full Name"
                             id="logname"
+                            bind:value={userName}
                             autocomplete="off"
+                            required
                           />
                           <i class="input-icon uil uil-user"></i>
                         </div>
@@ -89,7 +108,9 @@
                             class="form-style"
                             placeholder="Your Email"
                             id="logemail"
+                            bind:value={userEmail}
                             autocomplete="off"
+                            required
                           />
                           <i class="input-icon uil uil-at"></i>
                         </div>
@@ -100,7 +121,9 @@
                             class="form-style"
                             placeholder="Your Password"
                             id="logpass"
+                            bind:value={userPass}
                             autocomplete="off"
+                            required
                           />
                           <i class="input-icon uil uil-lock-alt"></i>
                         </div>
@@ -108,6 +131,8 @@
                       </div>
                     </div>
                   </div>
+                </form>
+
                 </div>
               </div>
             </div>
