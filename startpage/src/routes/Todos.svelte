@@ -28,7 +28,9 @@
 </div>
 
 <style>
-
+.todosCard{
+  transition: all 1s;
+}
 input{
   border: none;
   color:beige;
