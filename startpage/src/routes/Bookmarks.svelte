@@ -1,10 +1,12 @@
 <script>
+    // @ts-ignore
     import { each } from "svelte/internal";
     import Bookmark from "./Bookmark.svelte";
     import { bookMarks } from "./stores";
     export let Desc = "default";
 
     let currentBookmark = ""
+    // @ts-ignore
     function addBookmark(e){
         if(e.key === "Enter"){
             $bookMarks.push(currentBookmark)
@@ -37,5 +39,8 @@
         outline: none;
         color:beige;
         background-color: #282A3A;
+    }
+    input::placeholder{
+        color:beige;
     }
 </style>

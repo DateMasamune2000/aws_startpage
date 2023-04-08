@@ -24,13 +24,13 @@
 
   .card{
     color: #FFFFC1;
-    background-color: #C490E4;
+    background-color: #0156cc;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: height 1s ease-in-out;
   }
 
   .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.404);
 }
 
 </style>

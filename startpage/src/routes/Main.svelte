@@ -39,8 +39,9 @@
   }
   .main-content{
     color: #FBF1D3;
-    background-color: #282A3A;
+    background-color: #242433;
     width: 100vw;
     height: 100vh;
+    user-select: none;
   }
 </style>

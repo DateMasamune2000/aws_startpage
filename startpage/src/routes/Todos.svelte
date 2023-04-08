@@ -1,9 +1,12 @@
 <script>
+  // @ts-ignore
+
   import { each } from "svelte/internal";
     import Todo from "./Todo.svelte";
     export let Desc = "default"
   import { todosList } from "./stores";
     let currentTodo = ""
+    // @ts-ignore
     function addTodo(e){
         if(e.key === "Enter"){
         $todosList.push(currentTodo)
@@ -28,9 +31,7 @@
 </div>
 
 <style>
-.todosCard{
-  transition: all 1s;
-}
+
 input{
   border: none;
   color:beige;
@@ -41,4 +42,7 @@ input:focus{
   color:beige;
   background-color: #282A3A;
 }
+input::placeholder{
+        color:beige;
+    }
 </style>

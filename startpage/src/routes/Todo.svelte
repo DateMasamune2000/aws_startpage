@@ -13,8 +13,8 @@
 
 
 <div>
-<label><input type="checkbox" id={index} name={todo}> {todo}</label>
-<i class="bi bi-x-circle"  on:click={deleteSelf} on:keypress={deleteSelf}></i>
+<label class="form-check-label"><input type="checkbox"  class="form-check-input" id={index} name={todo}> {todo}</label>
+<i class="bi bi-x-circle" on:click={deleteSelf} on:keypress={deleteSelf}></i>
 </div>
 
 <style>
