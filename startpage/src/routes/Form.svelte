@@ -1,4 +1,12 @@
+<script>
+    import { userLogin } from "./stores";
 
+    function authUser(){
+        console.log("asdfasdfasdf")
+        $userLogin = true;
+    }
+</script>
+    
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
@@ -7,7 +15,7 @@
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css"
     />
-    <link rel="stylesheet" href="./style.css" />
+    <!-- <link rel="stylesheet" href="./style.css" /> -->
     <!-- partial:index.partial.html -->
     <div class="section">
       <div class="container">
@@ -52,7 +60,7 @@
                           />
                           <i class="input-icon uil uil-lock-alt"></i>
                         </div>
-                        <a href="#" class="btn mt-4">submit</a>
+                        <button type="submit" on:click={authUser} class="btn mt-4">submit</button>
                         <p class="mb-0 mt-4 text-center">
                           <a href="#0" class="link">Forgot your password?</a>
                         </p>
@@ -96,7 +104,7 @@
                           />
                           <i class="input-icon uil uil-lock-alt"></i>
                         </div>
-                        <a href="#" class="btn mt-4">submit</a>
+                        <button type="submit" class="btn mt-4" on:click={authUser}>submit</button>
                       </div>
                     </div>
                   </div>
