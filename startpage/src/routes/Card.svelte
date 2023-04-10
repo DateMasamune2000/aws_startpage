@@ -19,6 +19,8 @@
     <Bookmarks/>    
     {:else if cardTitle==='Todos'}
     <Todos/>
+    {:else if cardTitle==='Calendar'}
+    <Calendar/>
     {:else}
    <Weather/>
     {/if}

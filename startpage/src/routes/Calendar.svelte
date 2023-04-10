@@ -1,4 +1,4 @@
-
+<!-- 
 <script>
   const isLeapYear = (year) => {
     return (
@@ -497,4 +497,75 @@
       margin: 5px 0px;
     }
   }
-</style>
+</style> -->
+
+
+<script>
+	import { InlineCalendar } from 'svelte-calendar';
+	import { base } from '$app/paths';
+
+	const theme = {
+  "calendar": {
+    "width": "250px",
+    "maxWidth": "100vw",
+    "legend": {
+      "height": "30px"
+    },
+    "shadow": "0px 10px 26px rgba(0, 0, 0, 0.25)",
+    "colors": {
+      "text": {
+        "primary": "#FFFFC1",
+        "highlight": "#102770"
+      },
+      "background": {
+        "primary": "#102770",
+        "highlight": "#eb7400",
+        "hover": "#eee"
+      },
+      "border": "#eee"
+    },
+    "font": {
+      "regular": "14px",
+      "large": "1px"
+    },
+    "grid": {
+      "disabledOpacity": ".35",
+      "outsiderOpacity": ".6"
+    }
+  }
+}
+
+import { onMount } from 'svelte';
+    import { browser } from '$app/environment';
+
+    let open;
+
+    let scrollTop = null;
+    let scrollLeft = null;
+
+    function disableScroll() {
+        if (browser) {
+            scrollTop = 
+                window.pageYOffset || window.document.documentElement.scrollTop;
+            scrollLeft = 
+                window.pageXOffset || window.document.documentElement.scrollLeft,
+                window.onscroll = function() {
+                window.scrollTo(scrollLeft, scrollTop);
+            }};
+        }
+
+    function enableScroll() {
+        if (browser) {
+            window.onscroll = function() {};
+        }
+    };
+
+    $: if (open) {
+        disableScroll();
+    } else {
+        enableScroll();
+    }
+</script>
+
+
+<InlineCalendar {theme} on:mouseenter={disableScroll} on:mouseleave={enableScroll}/>
