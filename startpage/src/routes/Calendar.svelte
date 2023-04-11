@@ -535,14 +535,15 @@
   }
 }
 
-let calenderOpened = false
+let calendarOpened = false
 </script>
 
-{#if calenderOpened}
+{#if calendarOpened}
+  <button class="btn" on:click={()=>{calendarOpened = false}}>Close Calendar</button>
 <InlineCalendar {theme} />
 {:else}
 <div>
-  <button class="btn" on:click={()=>{calenderOpened = true}}>Open Calendar</button>
+  <button class="btn" on:click={()=>{calendarOpened = true}}>Open Calendar</button>
 </div>
 {/if}
 

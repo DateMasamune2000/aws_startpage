@@ -1,9 +1,9 @@
 <script>
     export let Desc = "default"
-	export let coordinate_string = "";
     import { weatherData } from "./stores";
 	import { refreshWeather } from "./stores";
 	import { onMount } from "svelte";
+	import Geolocation from "svelte-geolocation";
 
 	let coordinateData = {
 		"lat": 0,
@@ -11,34 +11,47 @@
 	}
 
 	async function setCoordinates () {
-		let temp = coordinate_string.split(' ');
-		var temp2 = {
-			"lat": Number(temp[0]),
-			"long": Number(temp[1])
+		coordinateData = {
+			"lat": lat,
+			"long": long
 		};
-
-		coordinateData = temp2;
 	};
 
 	async function rw() {
 		setCoordinates();
 		$weatherData = await refreshWeather(
-				coordinateData["lat"],
-				coordinateData["long"]);
+				coordinateData["long"],
+				coordinateData["lat"]);
 	};
+
+	let lat = 0;
+	let long = 0;
 
 	onMount(async() => {
 		$weatherData = await refreshWeather(
-				coordinateData["lat"],
-				coordinateData["long"]);
+				long,
+				lat);
 	});
 
 	let visible = false;
 	function toggleVisible() {
 		visible = !visible;
 	}
+
+	let coords = [];
+
+	async function setLocation() {
+		lat = coords[0];
+		long = coords[1];
+		$weatherData = await refreshWeather(
+			long,
+			lat
+		);
+	}
+
 </script>
 
+<Geolocation getPosition bind:coords />
 <div class="card-text">
 <p>{Desc = "Get weather information"}</p>
 <ul>
@@ -52,11 +65,18 @@
 </div>
 <br/>
 <div class="row">
-<div class="input-group mb-3">
-<!-- <span class="input-group-text" id="basic-addon1">@</span> -->
-<button class="btn" id="basic_addon1" on:click={rw}>@</button>
-<input type="text" bind:value={coordinate_string} class="form-control" placeholder="<x> <y>" aria-label="Username" aria-describedby="basic-addon1">
+Latitude<br/>
+<input type="text" bind:value={lat} class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+Longitude:<br/>
+<input type="text" bind:value={long} class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
 </div>
+<br/>
+<div class="row">
+<button class="btn btn-primary" id="btn-primary" on:click={rw}>Set Coordinates</button>
+</div>
+<br/>
+<div class="row">
+<button class="btn btn-secondary" on:click={setLocation}>Use current location<button>
 </div>
 {:else}
 <div class="row">
