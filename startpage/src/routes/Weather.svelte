@@ -65,15 +65,14 @@
 </div>
 <br/>
 <div class="row">
-<div class="input-group mb-3">
-<!-- <span class="input-group-text" id="basic-addon1">@</span> -->
-Latitude: <input type="text" bind:value={lat} class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+Latitude<br/>
+<input type="text" bind:value={lat} class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+Longitude:<br/>
+<input type="text" bind:value={long} class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
 </div>
 <br/>
-<div class="input-group mb-3">
-Longitude: <input type="text" bind:value={long} class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-<button class="btn" id="basic_addon1" on:click={rw}>Set Coordinates</button>
-</div>
+<div class="row">
+<button class="btn btn-primary" id="btn-primary" on:click={rw}>Set Coordinates</button>
 </div>
 <br/>
 <div class="row">
