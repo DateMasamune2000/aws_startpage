@@ -1,6 +1,5 @@
 <script>
     export let Desc = "default"
-	export let coordinate_string = "";
     import { weatherData } from "./stores";
 	import { refreshWeather } from "./stores";
 	import { onMount } from "svelte";
@@ -21,8 +20,8 @@
 	async function rw() {
 		setCoordinates();
 		$weatherData = await refreshWeather(
-				coordinateData["lat"],
-				coordinateData["long"]);
+				coordinateData["long"],
+				coordinateData["lat"]);
 	};
 
 	let lat = 0;
@@ -30,8 +29,8 @@
 
 	onMount(async() => {
 		$weatherData = await refreshWeather(
-				lat,
-				long);
+				long,
+				lat);
 	});
 
 	let visible = false;
@@ -45,8 +44,8 @@
 		lat = coords[0];
 		long = coords[1];
 		$weatherData = await refreshWeather(
-			lat,
-			long
+			long,
+			lat
 		);
 	}
 
