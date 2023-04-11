@@ -19,6 +19,8 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"mysql2": "^3.2.0",
+		"sequelize": "^6.31.0",
 		"svelte-calendar": "^3.1.6"
 	}
 }
