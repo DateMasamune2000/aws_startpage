@@ -32,7 +32,7 @@
 
   .card{
     color: #FFFFC1;
-    background-color: #5715b9;
+    background-color: #6C5B7B;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: height 1s ease-in-out;
   }

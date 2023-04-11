@@ -68,10 +68,10 @@
 
 <style>
 	button{
-		background-color: #03C988;
+		background-color: #4f88b9;
 	}
 	button:hover{
-		background-color: #03C988;
+		background-color: #4f88b9;
 	}
 </style>
 

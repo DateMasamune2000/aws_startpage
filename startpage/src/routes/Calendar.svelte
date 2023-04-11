@@ -535,37 +535,25 @@
   }
 }
 
-import { onMount } from 'svelte';
-    import { browser } from '$app/environment';
-
-    let open;
-
-    let scrollTop = null;
-    let scrollLeft = null;
-
-    function disableScroll() {
-        if (browser) {
-            scrollTop = 
-                window.pageYOffset || window.document.documentElement.scrollTop;
-            scrollLeft = 
-                window.pageXOffset || window.document.documentElement.scrollLeft,
-                window.onscroll = function() {
-                window.scrollTo(scrollLeft, scrollTop);
-            }};
-        }
-
-    function enableScroll() {
-        if (browser) {
-            window.onscroll = function() {};
-        }
-    };
-
-    $: if (open) {
-        disableScroll();
-    } else {
-        enableScroll();
-    }
+let calenderOpened = false
 </script>
 
+{#if calenderOpened}
+<InlineCalendar {theme} />
+{:else}
+<div>
+  <button class="btn" on:click={()=>{calenderOpened = true}}>Open Calendar</button>
+</div>
+{/if}
 
-<InlineCalendar {theme} on:mouseenter={disableScroll} on:mouseleave={enableScroll}/>
+<style>
+
+button{
+    margin: 4px;
+    width: 100%;
+		background-color: #4f88b9;
+	}
+	button:hover{
+		background-color: #4f88b9;
+	}
+</style>
