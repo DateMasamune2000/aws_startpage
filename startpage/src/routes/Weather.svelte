@@ -12,7 +12,6 @@
 	}
 
 	async function setCoordinates () {
-		let temp = coordinate_string.split(' ');
 		coordinateData = {
 			"lat": lat,
 			"long": long
@@ -43,9 +42,11 @@
 	let coords = [];
 
 	async function setLocation() {
+		lat = coords[0];
+		long = coords[1];
 		$weatherData = await refreshWeather(
-			coords[1],
-			coords[0],
+			lat,
+			long
 		);
 	}
 
