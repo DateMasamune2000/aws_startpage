@@ -1,18 +1,70 @@
 <script>
     import { userLogin } from "./stores";
+
+
     let userName = "";
     let userPass = "";
     let userEmail = "";
+    // import {con,query} from "./database"
+
     function authUser(){
         
-        $userLogin = true;
+        sendAuthData().then(response => response.json())
+    .then(result => setUserLogin(result))
+    .catch(error => console.log('error', error));
+    }
+
+    function setUserLogin(result){
+      console.log(result)
+      $userLogin = result.authStatus == 1200
     }
     function createUser(){
-
+      sendCreateData().then(response => response.json())
+    .then(result => setUserLogin(result))
+    .catch(error => console.log('error', error));
     }
     function checkUserExists(){
             
     }
+    function sendCreateData(){
+      var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+var raw = JSON.stringify({
+  "email": userEmail,
+  "username": userName,
+  "password": userPass
+});
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+ return fetch("http://localhost:3000/signUp", requestOptions)
+}
+function sendAuthData(){
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+var raw = JSON.stringify({
+  "email": userEmail,
+  "username": userName,
+  "password": userPass
+});
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+  return fetch("http://localhost:3000/login", requestOptions)
+}
+  
 </script>
     
     <link
@@ -122,7 +174,7 @@
                           />
                           <i class="input-icon uil uil-lock-alt"></i>
                         </div>
-                        <button type="submit" class="btn mt-4" on:click={authUser}>submit</button>
+                        <button type="submit" class="btn mt-4" on:click={createUser}>submit</button>
                       </div>
                     </div>
                   </div>

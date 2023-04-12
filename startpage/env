@@ -1,6 +1,0 @@
-{
-    MYSQL_DB_HOST : cc-project-database.ck33cbu8zasz.us-east-1.rds.amazonaws.com
-    MYSQL_DB_USER : "admin"
-    MYSQL_DB_PASSWORD : "pes2002$"
-    MYSQL_DB_USER : "aws_startpage"
-}
