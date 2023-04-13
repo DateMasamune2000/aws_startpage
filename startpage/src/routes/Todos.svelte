@@ -1,9 +1,40 @@
 <script>
   // @ts-ignore
-	import { each } from "svelte/internal";
+	import { each,onMount } from "svelte/internal";
 	import Todo from "./Todo.svelte";
-	export let Desc = "default"
 	import { todosList } from "./stores";
+	import { email } from "./stores";
+
+	onMount(setTodos)
+	function getTodos(){
+		return fetch(`http://localhost:3000/todos/${$email}`)
+	}
+
+	function setTodos(){
+		getTodos().then(response=>response.json()).then((data)=>{
+			$todosList = data
+			console.log(data)
+		}).catch((e)=>console.log(e))
+	}
+
+	function sendTodos(){
+		var myHeaders = new Headers();
+        myHeaders.append("Content-Type","application/json");
+        var raw = JSON.stringify({"email":$email,"todos": $todosList});
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+        return fetch("http://localhost:3000/todos", requestOptions)
+	}
+
+	function createTodos(){
+		sendTodos().then(response=>response.json()).catch((e)=>console.log('error',e))
+	}
+
+	export let Desc = "default"
     let currentTodo = ""
     // @ts-ignore
     function addTodo(e){
@@ -28,7 +59,7 @@
       <input type="text" on:keypress={addTodo} bind:value={currentTodo} class="form-control" placeholder="Add a Todo..." aria-label="Username" aria-describedby="basic-addon1">
   </div>
   <div>
-    <button class="btn" type="submit">Save Todos</button>
+    <button class="btn" type="submit" on:click={createTodos}>Save Todos</button>
   </div>
 </div>
 

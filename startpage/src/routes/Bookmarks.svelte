@@ -1,10 +1,21 @@
 <script>
     // @ts-ignore
-    import { each } from "svelte/internal";
+    import { each, onMount } from "svelte/internal";
     import Bookmark from "./Bookmark.svelte";
     import { bookMarks } from "./stores";
     import { email } from "./stores";
-    
+    onMount(setBookmarks)
+    function getBookmarks(){
+        return fetch(`http://localhost:3000/bookmarks/${$email}`)
+    }
+
+    function setBookmarks(){
+        getBookmarks().then(response=>response.json()).then((data)=>{
+            $bookMarks = data
+            console.log(data)
+        }).catch((e)=>console.log(e))
+    }
+
     function sendBookmarks(){
         var myHeaders = new Headers();
         myHeaders.append("Content-Type","application/json");
