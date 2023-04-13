@@ -3,9 +3,28 @@
     import { each } from "svelte/internal";
     import Bookmark from "./Bookmark.svelte";
     import { bookMarks } from "./stores";
-    export let Desc = "default";
+    import { email } from "./stores";
+    
+    function sendBookmarks(){
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type","application/json");
+        var raw = JSON.stringify({"email":$email,"bookMarks": bookMarks});
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+        return fetch("http://localhost:3000/bookmarks", requestOptions)
+    }
 
+    function createBookmarks(){
+        sendBookmarks().then(response => response.json())
+        .catch(error => console.log('error', error));
+    }
+    
     let currentBookmark = ""
+    export let Desc = "default";
     // @ts-ignore
     function addBookmark(e){
         if(e.key === "Enter"){
@@ -24,7 +43,7 @@
         {/each}
     </p>
     <div class="input-group mb-3">
-        <input type="url" on:keypress={addBookmark} bind:value={currentBookmark} class="form-control" placeholder="Bookmark a tab..." aria-label="Username" aria-describedby="basic-addon1">
+        <input type="url" on:keypress={addBookmark} on:keypress{createBookmarks} bind:value={currentBookmark} class="form-control" placeholder="Bookmark a tab..." aria-label="Username" aria-describedby="basic-addon1">
     </div>
 </div>
 

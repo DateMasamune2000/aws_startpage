@@ -3,6 +3,7 @@ import { writable } from "svelte/store";
 export const todosList = writable([])
 export const bookMarks = writable([])
 export const userLogin = writable(false)
+export const email = writable()
 
 export let weatherData = writable({ "tmp": 0, "hum": 0 });
 

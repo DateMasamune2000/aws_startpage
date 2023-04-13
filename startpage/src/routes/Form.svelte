@@ -1,6 +1,6 @@
 <script>
     import { userLogin } from "./stores";
-
+    import { email } from "./stores";
 
     let userName = "";
     let userPass = "";
@@ -17,6 +17,7 @@
     function setUserLogin(result){
       console.log(result)
       $userLogin = result.authStatus == 1200
+      $email = userEmail
     }
     function createUser(){
       sendCreateData().then(response => response.json())
