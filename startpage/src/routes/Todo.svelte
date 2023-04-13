@@ -1,13 +1,18 @@
 <script>
     import { todosList } from "./stores";
+    import { email } from "./stores";
     export let todo = ""
     export let index
 
+    function getTodos(){
+        return fetch(`http://localhost:3000/delete/todos/${$email}/${index}`)
+    }
+
     function deleteSelf(){
-        console.log("deleting self")
+        console.log(index)
         $todosList.splice(index,1)
+        getTodos().then(response=>response.json()).catch((e)=>console.log(e))
         $todosList = $todosList
-    
     }
 </script>
 
