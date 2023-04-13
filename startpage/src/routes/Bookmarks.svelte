@@ -8,7 +8,7 @@
     function sendBookmarks(){
         var myHeaders = new Headers();
         myHeaders.append("Content-Type","application/json");
-        var raw = JSON.stringify({"email":$email,"bookMarks": bookMarks});
+        var raw = JSON.stringify({"email":$email,"bookMarks": $bookMarks});
         var requestOptions = {
             method: 'POST',
             headers: myHeaders,
@@ -43,7 +43,10 @@
         {/each}
     </p>
     <div class="input-group mb-3">
-        <input type="url" on:keypress={addBookmark} on:keypress{createBookmarks} bind:value={currentBookmark} class="form-control" placeholder="Bookmark a tab..." aria-label="Username" aria-describedby="basic-addon1">
+        <label for=""><input type="url" on:keypress={addBookmark} bind:value={currentBookmark} class="form-control" placeholder="Bookmark a tab..." aria-label="Username" aria-describedby="basic-addon1"></label>
+    </div>
+    <div>
+        <button class="btn" type="submit" on:click={createBookmarks}>Save Bookmarks</button>
     </div>
 </div>
 
@@ -62,4 +65,11 @@
     input::placeholder{
         color:beige;
     }
+    button{
+        width: 100%;
+		background-color: #4f88b9;
+	}
+	button:hover{
+		background-color: #4f88b9;
+	}
 </style>
