@@ -14,8 +14,15 @@
 		"@sveltejs/kit": "^1.5.0",
 		"svelte": "^3.54.0",
 		"svelte-check": "^3.0.1",
+		"svelte-geolocation": "^0.3.0",
 		"typescript": "^5.0.0",
 		"vite": "^4.2.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"mysql": "^2.18.1",
+		"mysql2": "^3.2.0",
+		"sequelize": "^6.31.0",
+		"svelte-calendar": "^3.1.6"
+	}
 }
