@@ -1,11 +1,12 @@
 <script>
+    import { database_url } from "./stores";
     import { bookMarks } from "./stores";
     import { email } from "./stores";
     export let bm = "";
     export let index
 
     function getBookmarks(){
-        return fetch(`http://localhost:3000/delete/bookmarks/${$email}/${index}`)
+        return fetch(`${database_url}:3000/delete/bookmarks/${$email}/${index}`)
     }
 
     function deleteBookmark(){

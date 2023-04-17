@@ -4,9 +4,10 @@
     import Bookmark from "./Bookmark.svelte";
     import { bookMarks } from "./stores";
     import { email } from "./stores";
+    import { database_url } from "./stores";
     onMount(setBookmarks)
     function getBookmarks(){
-        return fetch(`http://localhost:3000/bookmarks/${$email}`)
+        return fetch(`${database_url}:3000/bookmarks/${$email}`)
     }
 
     function setBookmarks(){
@@ -26,7 +27,7 @@
             body: raw,
             redirect: 'follow'
         };
-        return fetch("http://localhost:3000/bookmarks", requestOptions)
+        return fetch(database_url+":3000/bookmarks", requestOptions)
     }
 
     function createBookmarks(){

@@ -4,10 +4,11 @@
 	import Todo from "./Todo.svelte";
 	import { todosList } from "./stores";
 	import { email } from "./stores";
+    import { database_url } from "./stores";
 
 	onMount(setTodos)
 	function getTodos(){
-		return fetch(`http://localhost:3000/todos/${$email}`)
+		return fetch(`${database_url}:3000/todos/${$email}`)
 	}
 
 	function setTodos(){
@@ -27,7 +28,7 @@
             body: raw,
             redirect: 'follow'
         };
-        return fetch("http://localhost:3000/todos", requestOptions)
+        return fetch(database_url+":3000/todos", requestOptions)
 	}
 
 	function createTodos(){

@@ -1,4 +1,5 @@
 <script>
+    import { database_url } from "./stores";
     import { userLogin } from "./stores";
     import { email } from "./stores";
 
@@ -44,7 +45,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
- return fetch("http://localhost:3000/signUp", requestOptions)
+ return fetch(database_url+":3000/signUp", requestOptions)
 }
 function sendAuthData(){
       var myHeaders = new Headers();
@@ -63,7 +64,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-  return fetch("http://localhost:3000/login", requestOptions)
+  return fetch(database_url+":3000/login", requestOptions)
 }
   
 </script>

@@ -1,11 +1,12 @@
 <script>
+    import { database_url } from "./stores";
     import { todosList } from "./stores";
     import { email } from "./stores";
     export let todo = ""
     export let index
 
     function getTodos(){
-        return fetch(`http://localhost:3000/delete/todos/${$email}/${index}`)
+        return fetch(`${database_url}:3000/delete/todos/${$email}/${index}`)
     }
 
     function deleteSelf(){
