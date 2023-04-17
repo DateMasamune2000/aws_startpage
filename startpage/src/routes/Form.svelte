@@ -45,7 +45,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
- return fetch(database_url+":3000/signUp", requestOptions)
+ return fetch("http://54.236.118.194:3000/signUp", requestOptions)
 }
 function sendAuthData(){
       var myHeaders = new Headers();
@@ -64,7 +64,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-  return fetch(database_url+":3000/login", requestOptions)
+  return fetch("http://54.236.118.194:3000/login", requestOptions)
 }
   
 </script>
