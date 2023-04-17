@@ -4,7 +4,7 @@ export const todosList = writable([])
 export const bookMarks = writable([])
 export const userLogin = writable(false)
 export const email = writable()
-export const database_url = ""
+export const database_url = "http:54.236.118.194"
 
 export let weatherData = writable({ "tmp": 0, "hum": 0 });
 
