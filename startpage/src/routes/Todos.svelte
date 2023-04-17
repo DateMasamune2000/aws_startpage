@@ -8,7 +8,7 @@
 
 	onMount(setTodos)
 	function getTodos(){
-		return fetch(`${database_url}:3000/todos/${$email}`)
+		return fetch(`http://54.236.118.194:3000/todos/${$email}`)
 	}
 
 	function setTodos(){
@@ -28,7 +28,7 @@
             body: raw,
             redirect: 'follow'
         };
-        return fetch(database_url+":3000/todos", requestOptions)
+        return fetch("http://54.236.118.194:3000/todos", requestOptions)
 	}
 
 	function createTodos(){

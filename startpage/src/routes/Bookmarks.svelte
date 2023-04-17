@@ -7,7 +7,7 @@
     import { database_url } from "./stores";
     onMount(setBookmarks)
     function getBookmarks(){
-        return fetch(`${database_url}:3000/bookmarks/${$email}`)
+        return fetch(`http://54.236.118.194:3000/bookmarks/${$email}`)
     }
 
     function setBookmarks(){
@@ -27,7 +27,7 @@
             body: raw,
             redirect: 'follow'
         };
-        return fetch(database_url+":3000/bookmarks", requestOptions)
+        return fetch("http://54.236.118.194:3000/bookmarks", requestOptions)
     }
 
     function createBookmarks(){

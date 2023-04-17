@@ -6,7 +6,7 @@
     export let index
 
     function getBookmarks(){
-        return fetch(`${database_url}:3000/delete/bookmarks/${$email}/${index}`)
+        return fetch(`http://54.236.118.194:3000/delete/bookmarks/${$email}/${index}`)
     }
 
     function deleteBookmark(){
