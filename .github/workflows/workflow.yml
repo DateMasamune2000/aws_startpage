@@ -1,0 +1,27 @@
+name: cc_project_github_workflow
+
+
+
+on:
+  push:
+    branches:
+      - finaldrive
+
+
+
+jobs:
+  deploy:
+    name: Push to EC2 Instance
+    runs-on: self-hosted
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v1
+
+      - name: Deploy to my EC2 instance
+        uses: easingthemes/ssh-deploy@v2.1.5
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.NOT_SAFE_FOR_LIFE }}
+          SOURCE: "./"
+          REMOTE_HOST: "ec2-54-236-118-194.compute-1.amazonaws.com"
+          REMOTE_USER: "ec2-user"
+          TARGET: "/home/ec2-user/aws_startpage"
