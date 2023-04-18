@@ -1,0 +1,3 @@
+[submodule "aws_startpage_backend"]
+	path = aws_startpage_backend
+	url = https://github.com/Andr0id16/aws_startpage_backend
