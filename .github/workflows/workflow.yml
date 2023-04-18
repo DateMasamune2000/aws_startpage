@@ -1,27 +1,24 @@
-name: cc_project_github_workflow
+name: Node CI
 
-
-
-on:
-  push:
-    branches:
-      - finaldrive
-
-
+on: [push]
 
 jobs:
   deploy:
-    name: Push to EC2 Instance
+
     runs-on: self-hosted
     steps:
-      - name: Checkout the code
-        uses: actions/checkout@v1
-
-      - name: Deploy to my EC2 instance
-        uses: easingthemes/ssh-deploy@v2.1.5
-        env:
+    - uses: actions/checkout@v3
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18.x'
+    - name: Install npm dependencies
+      run: npm install
+    - name: Deploy to Server
+      uses: easingthemes/ssh-deploy@main
+      env:
           SSH_PRIVATE_KEY: ${{ secrets.NOT_SAFE_FOR_LIFE }}
-          SOURCE: "./"
           REMOTE_HOST: "ec2-54-236-118-194.compute-1.amazonaws.com"
           REMOTE_USER: "ec2-user"
           TARGET: "/home/ec2-user/aws_startpage"
+          EXCLUDE: "/dist/, /node_modules/"
