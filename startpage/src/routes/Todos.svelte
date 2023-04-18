@@ -50,7 +50,7 @@
 
 <div class="todosCard card-text">
 
-<p>{Desc = "Add or remove your Todos at the click of a button."}</p>
+<p>{Desc = "Add or remove your Todos at the click of a few buttons."}</p>
 <p>
     {#each $todosList as todo,i}
         <Todo todo={todo} index={i}/>
