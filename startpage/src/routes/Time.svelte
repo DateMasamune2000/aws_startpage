@@ -17,6 +17,5 @@
 </script>
   
 <div class="card-text">
-    <p>{Desc = "The current time is: "}</p> 
-    <p>{time.toLocaleTimeString()}</p>  
+    <p>{Desc = `The current time is: ${time.toLocaleTimeString()}`}</p>  
 </div>
