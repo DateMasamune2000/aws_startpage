@@ -1,7 +1,7 @@
 <script>
   import Bookmarks from "./Bookmarks.svelte";
   import Todos from "./Todos.svelte";
-
+  import Time from "./Time.svelte";
   import Calendar from './Calendar.svelte'
   import Bookmark from "./Bookmark.svelte";
 
@@ -21,6 +21,8 @@
     <Todos/>
     {:else if cardTitle==='Calendar'}
     <Calendar/>
+    {:else if cardTitle==='Time'}
+    <Time/>
     {:else}
    <Weather/>
     {/if}
