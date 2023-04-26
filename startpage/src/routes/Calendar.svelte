@@ -49,9 +49,6 @@ function setYear(){
   <button class="btn" on:click={()=>{setYear}}>Open Calendar</button>
 </div>
 {:else}
-<div>
-  <button class="btn" on:click={()=>{calendarOpened = true}}>Open Calendar</button>
-</div>
 {/if}
 
 
