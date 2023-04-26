@@ -536,16 +536,26 @@
 }
 
 let calendarOpened = false
+
+function setYear(){
+	let date = new Date("July 1 2023")
+	Date.prototype.setTime(date)
+}
+	
 </script>
 
 {#if calendarOpened}
   <button class="btn" on:click={()=>{calendarOpened = false}}>Close Calendar</button>
 <InlineCalendar {theme} />
+<div>
+  <button class="btn" on:click={()=>{setYear}}>Open Calendar</button>
+</div>
 {:else}
 <div>
   <button class="btn" on:click={()=>{calendarOpened = true}}>Open Calendar</button>
 </div>
 {/if}
+
 
 <style>
 
