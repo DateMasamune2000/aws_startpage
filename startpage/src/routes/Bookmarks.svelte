@@ -70,7 +70,7 @@
         current number of bookmarks: {count}
     </div>
     <div>
-        <button class="btn" type="submit" on:click={UpdateCount}>Save Bookmarks</button>
+        <button class="btn" type="submit" on:click={UpdateCount}>show count</button>
     </div>
 </div>
 
