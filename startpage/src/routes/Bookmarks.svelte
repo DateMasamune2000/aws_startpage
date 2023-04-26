@@ -6,6 +6,7 @@
     import { email } from "./stores";
     import { database_url } from "./stores";
     onMount(setBookmarks)
+    export let count = 0;
     function getBookmarks(){
         return fetch(`http://54.236.118.194:3000/bookmarks/${$email}`)
     }
@@ -45,6 +46,11 @@
             currentBookmark = ""
         }
     }
+    function UpdateCount(){
+        count = $bookMarks.length
+    }
+
+    
 </script>
 
 <div class="card-text">
@@ -59,6 +65,12 @@
     </div>
     <div>
         <button class="btn" type="submit" on:click={createBookmarks}>Save Bookmarks</button>
+    </div>
+    <div>
+        current number of bookmarks: {count}
+    </div>
+    <div>
+        <button class="btn" type="submit" on:click={UpdateCount}>Save Bookmarks</button>
     </div>
 </div>
 
