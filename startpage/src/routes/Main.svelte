@@ -18,6 +18,7 @@
   <div class="p-2"><Card cardTitle="Bookmarks"/></div>
   <div class="p-2"><Card cardTitle="Todos"/></div>
   <div class="p-2"><Card cardTitle="Calendar"/></div>
+  <div class="p-2"><Card cardTitle="Time"/></div>
   <div class="p-2"><Card cardTitle="Weather"/></div>
  
 
