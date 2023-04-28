@@ -1,5 +1,6 @@
 <script>
     export let Desc = "default"
+    let current_day = new Date()
     import { weatherData } from "./stores";
 	import { refreshWeather } from "./stores";
 	import { onMount } from "svelte";
@@ -54,6 +55,8 @@
 <Geolocation getPosition bind:coords />
 <div class="card-text">
 <p>{Desc = "Get weather information"}</p>
+<p>Weather on {current_day.toDateString()} at {current_day.toLocaleTimeString()} :</p>
+
 <ul>
 <li>Temperature: {$weatherData["tmp"]} {$weatherData["unit"]}</li>
 <li>Humidity: {$weatherData["hum"]}</li>
